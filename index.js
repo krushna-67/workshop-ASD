@@ -2,9 +2,10 @@ const express = require('express')
 const path = require('path')
 const fs = require('fs/promises')
 const app = express()
-let pathTofile = path.join(__dirname, 'db.json')
+let pathTofile = path.join(__dirname, 'database/db.json')
 
 const cache={}
+
 async function readmyFile(){
     try{
         let data = await fs.readFile(pathTofile, 'utf-8')
