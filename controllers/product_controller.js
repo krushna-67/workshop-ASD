@@ -15,7 +15,10 @@ async function getAll(req, res) {
     try {
         const products = await getProducts()
 
-        cache[req.originalUrl] = products
+        cache[req.originalUrl] = {
+            data: products,
+            createdAt: Date.now()
+        }
 
         res.json(products)
     } catch (err) {
@@ -32,7 +35,10 @@ async function getOne(req, res) {
             return res.status(404).json({ message: 'Product not found' })
         }
 
-        cache[req.originalUrl] = product
+        cache[req.originalUrl] = {
+            data: product,
+            createdAt: Date.now()
+        }
 
         res.json(product)
     } catch (err) {
