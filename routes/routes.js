@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const cacheMiddleware = require('../middleware/cache_middleware')
+const {cache, cacheMiddleware} = require('../middleware/cache_middleware.js')
 
 const {
     getAll,
@@ -10,7 +10,7 @@ const {
     replace,
     update,
     remove
-} = require('../controllers/product.controller')
+} = require('../controllers/product_controller.js')
 
 router.get('/', cacheMiddleware, getAll)
 router.get('/:id', cacheMiddleware, getOne)

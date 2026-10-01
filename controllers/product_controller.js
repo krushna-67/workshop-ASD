@@ -42,6 +42,7 @@ async function getOne(req, res) {
 
         res.json(product)
     } catch (err) {
+        console.log(err)
         res.status(500).json({ message: 'Server error' })
     }
 }

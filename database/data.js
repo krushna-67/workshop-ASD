@@ -2,7 +2,7 @@
 const fs = require('fs/promises')
 const path = require('path')
 
-const filePath = path.join(__dirname, 'database/db.json')
+const filePath = path.join(__dirname, '../database/db.json')
 
 
 async function getAllProducts() {
