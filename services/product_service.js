@@ -3,7 +3,7 @@ const {
     getAllProducts,
     getProductById,
     writeProducts
-} = require('../database/product.database')
+} = require('../database/data.js')
 
 // GET all products
 async function getProducts() {

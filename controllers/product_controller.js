@@ -6,7 +6,7 @@ const {
     replaceProduct,
     updateProduct,
     deleteProduct
-} = require('../services/product.service')
+} = require('../services/product_service.js')
 
 // GET all products
 async function getAll(req, res) {
