@@ -8,10 +8,15 @@ const {
     deleteProduct
 } = require('../services/product_service.js')
 
+const { cache } = require('../middleware/cache_middleware')
+
 // GET all products
 async function getAll(req, res) {
     try {
         const products = await getProducts()
+
+        cache[req.originalUrl] = products
+
         res.json(products)
     } catch (err) {
         res.status(500).json({ message: 'Server error' })
@@ -26,6 +31,8 @@ async function getOne(req, res) {
         if (!product) {
             return res.status(404).json({ message: 'Product not found' })
         }
+
+        cache[req.originalUrl] = product
 
         res.json(product)
     } catch (err) {
